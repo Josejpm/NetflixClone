@@ -10,7 +10,6 @@
             height: 20px;
         }
 
-
     @include phone{
 
         height: 75px;
@@ -19,7 +18,6 @@
         img{
             height: 45px;
         }
-
     }
 
     @include tablet{
@@ -30,9 +28,5 @@
         img{
             height: 45px;
         }
-
     }
-
-
-    
 }

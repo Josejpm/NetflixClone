@@ -1,26 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Footer.scss'
+import { AppContext } from '../../context/AppContext'
+import { translate } from 'react-translate'
 
-const Footer = () => {
+const Footer = ({t}) => {
+
+    const {setLang,footerValues} = useContext(AppContext)
+    const { questions,giftCard,terms,privacy }=footerValues
+
     return ( 
         <div className="footer-container">
-        <footer className="footer">
-            <p>¿Preguntas? Llama al 800-123-4567</p>
-            <ul className="navbar">
-              <li> <a href="!#">Términos de las tarjetas de regalo </a> </li> 
-              <li> <a href="!#">Términos de uso </a> </li>
-              <li> <a href="!#"> Declaración de privacidad </a> </li>
-            </ul>
-            <div className="languages">
-                <select name="lang">
-                    <option value="ENG">Ingles</option>
-                    <option value="SPA">Espanol</option>
-                </select>
-            </div>
-        </footer>
-      </div>
+            <footer className="footer">
+                <p>{t(questions)}</p>
+                <ul className="navbar">
+                  <li> <a href="!#">{t(giftCard)} </a> </li> 
+                  <li> <a href="!#">{t(terms)} </a> </li>
+                  <li> <a href="!#"> {t(privacy)} </a> </li>
+                </ul>
+                <div className="languages">
+                    <select name="lang" onChange={e=>setLang(e.target.value)} >
+                        <option value="SPA">Espanol</option>
+                        <option value="ENG">English</option>
+                    </select>
+                </div>
+            </footer>
+        </div>
 
      );
 }
  
-export default Footer;
+export default translate('footer')(Footer);
