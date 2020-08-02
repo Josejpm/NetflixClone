@@ -72,7 +72,11 @@ const Login = ({t}) => {
         </div>
 
         <div className="submit">
-          <input type="submit" value={t(title)} />
+          <input 
+            type="submit" 
+            value={t(title)}
+            onSubmit={e=>e.preventDefault()}
+          />
         </div>
 
         <div className="actions">
