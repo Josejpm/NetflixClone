@@ -13,12 +13,18 @@ const Login = ({t}) => {
   const [reveal,setReveal]=useState({type:'password',show:false});
   const {type,show} = reveal;
 
+  const [userSize,setUserSize] = useState('normal');
+  const [passSize,setPassSize] = useState('normal');
+
   const validateForm = e=>{
+
     if(e.target.name==='user'){
-      e.target.value.length <=2 
+      e.target.value.length !== 0 ? setUserSize('small') : setUserSize('normal')
+      e.target.value.length <= 2 
         ? setError({...error, userError:true,userClass:'invalid'}) 
         :  setError({...error, userError:false,userClass:'valid'});
     } else {
+      e.target.value.length !== 0 ? setPassSize('small') : setPassSize('normal')
       e.target.value.length <4 
         ? setError({...error, passError:true,passClass:'invalid'}) 
         :  setError({...error, passError:false,passClass:'valid'})
@@ -29,6 +35,7 @@ const Login = ({t}) => {
     !show ? setReveal({type:'text',show:true}) : setReveal({type:'password',show:false});
   }
 
+
   return (
     <Fragment>
       <main className="container">
@@ -37,7 +44,7 @@ const Login = ({t}) => {
 
         <div className="inputs">
           <div className="input-field">
-            <label className={userClass} htmlFor="user"> {t(input1)} </label>
+            <label className={userSize} htmlFor="user"> {t(input1)} </label>
             <input 
               className={userClass} 
               type="text" 
@@ -50,7 +57,7 @@ const Login = ({t}) => {
           </div>
     
           <div className="input-field">
-            <label className={passClass} htmlFor="password" > {t(input2)} </label>
+            <label className={passSize} htmlFor="password" > {t(input2)} </label>
             <input 
               className={passClass} 
               type={type} 
