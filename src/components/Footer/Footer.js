@@ -19,7 +19,7 @@ const Footer = ({t}) => {
                 </ul>
                 <div className="languages">
                     <select name="lang" onChange={e=>setLang(e.target.value)} >
-                        <option value="SPA">Espanol</option>
+                        <option value="SPA">Español</option>
                         <option value="ENG">English</option>
                     </select>
                 </div>

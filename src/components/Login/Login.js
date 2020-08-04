@@ -13,11 +13,12 @@ const Login = ({t}) => {
   const [reveal,setReveal]=useState({type:'password',show:false});
   const {type,show} = reveal;
 
+
   const [userSize,setUserSize] = useState('normal');
   const [passSize,setPassSize] = useState('normal');
 
   const validateForm = e=>{
-
+    setReveal({...reveal,clas:''});
     if(e.target.name==='user'){
       e.target.value.length !== 0 ? setUserSize('small') : setUserSize('normal')
       e.target.value.length <= 2 
@@ -34,7 +35,6 @@ const Login = ({t}) => {
   const showPass = ()=>{
     !show ? setReveal({type:'text',show:true}) : setReveal({type:'password',show:false});
   }
-
 
   return (
     <Fragment>

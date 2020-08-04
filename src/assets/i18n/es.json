@@ -1,7 +1,7 @@
 {
 	"locale" 	: "en-ar",
 	"loginPage" 	: {
-		"login" : "Iniciar Sesión",
+		"login" : "Inicia Sesión",
 		"placeholder":"Email o número de teléfono",
 		"placeholder2":"Contraseña",
 		"facebook":"Iniciar sesión con Facebook",
