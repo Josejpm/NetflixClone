@@ -4,7 +4,6 @@ This is a Clone of the Netflix login page, **made only for training & practice p
 
 Created with React using:
 
- * react-router-dom
  * node-sass
  * react-translate
  
